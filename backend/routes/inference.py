@@ -1,0 +1,1 @@
+from fastapi import APIRouter from pydantic import BaseModel router = APIRouter( prefix="/inference", tags=["Inference"] ) class PromptRequest(BaseModel): prompt: str @router.post("/generate") def generate(request: PromptRequest): return { "response": f"Generated output for: {request.prompt}" }
